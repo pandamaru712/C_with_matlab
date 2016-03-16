@@ -1,5 +1,5 @@
 vpath %.c src
-vpath %.h src
+vpath %.h include
 
 #CFLAGS = -I/Applications/MATLAB_R2014a.app/extern/include
 OBJDIR = ./objects
@@ -23,7 +23,7 @@ $(PROG): $(OBJS)
 
 $(OBJDIR)/%.o: %.c
 	@[ -d $(OBJDIR) ]
-	$(CC) -g -MMD -MP -o $@ -c $<
+	$(CC) -Iinclude -g -MMD -MP -o $@ -c $<
 
 clean:
 	rm -f $(OBJS) $(DEPS)
